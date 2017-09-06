@@ -1,8 +1,8 @@
 <template>
     <section id="features" class="features">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-4" v-for="item in this.$parent.items" :key="item._id">
+                <div class="row">   
+                    <div class="col-md-4" v-for="(item, index) in this.$parent.items" :key="item._id" :class="computedClass(index)" :content="['#data_' + index]">
                         <div class="features_item sm-m-top-30">
                             <div class="f_item_text">
                                 <img v-bind:src="item.picture">
@@ -11,22 +11,48 @@
                             </div>
                         </div>
                     </div>
-                 </div>
+                </div>
+
+                <nav class="paginator" aria-label="Page navigation">
+                    <ul class="pagination" id="pagination"></ul>
+                </nav>
+
             </div>
         </section>
 </template>
 
 <script>
 export default {
-    mounted: function() {
+    data() {
+        return {
+            hidecontent: '',
+            intcount: 0,
+            output: '',
+            nilai: 1,
+            loaddata: '',
+            datatotal: 0
+        }
+    },
+    updated() {
         const datanya = this.$parent.items
         const totalData = _.size(datanya)
-         _.each(datanya, function (value, key) {
-            const id = value._id
-            const picture = value.picture
-            const title = value.title
-            const body = value.body
-        });
+        const gotDamnRigthTotal = parseInt(totalData / 6)
+
+        $('#pagination').twbsPagination({
+            totalPages: gotDamnRigthTotal,
+            visiblePages: 5,
+            onPageClick: function (event, page) {
+                $('div.row div.col-md-4').addClass('hidecontent')
+                $('.data_'+page).removeClass("hidecontent");
+            }
+        })
+
+        $('div.row div.col-md-4.data_1')
+            .removeClass('col-md-4 data_1 hidecontent')
+            .addClass('col-md-4 data_1')
+    },
+    mounted: function() {
+        
     },
     methods: {
         countSting: function(param) {
@@ -44,6 +70,9 @@ export default {
                 filterData = filterData.substring(0, 22) + " ..."
             }
             return filterData
+        },
+        computedClass: function(index) {
+            return "data_" + Math.ceil((index + 1) / 6) + " hidecontent"
         }
     }
 }
@@ -60,15 +89,19 @@ export default {
     background: rgba(0,0,0,.6);
     z-index: 1000;
     color: #fff;
-	text-align: center;
-	padding: 27px 0;
+	text-align: justify;
+	padding: 27px 10%;
     font-size: 13px;
     position: absolute;
-    /* margin-left: 14%; */
-    width: 100%;
+    margin: 0 15%;
+    width: 70%;
     bottom: 0;
 }
-.orbit-wrapper.fluid .orbit-bullets {
-    margin-bottom: 130px;
+.hidecontent {
+    display: none;
+}
+.paginator {
+    margin: 5px 0 10px 0;
+    float: right;
 }
 </style>

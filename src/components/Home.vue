@@ -13,7 +13,7 @@ import Newslist from './shared/Newslist.vue'
 
 require('../assets/template/orbitslide/jquery.orbit-1.3.0.js');
 require('../assets/template/orbitslide/orbit-1.3.0.css');
-
+require('../assets/template/js/paginator/jquery.twbsPagination.min.js');
 
 export default {
     components: {
@@ -57,7 +57,7 @@ export default {
             
             this.$http.get(urlSlide).then(responseSlide => {
                 this.slideItem = responseSlide.data
-                console.log(this.slideItem);
+
                 this.$nextTick(() => {
                     $('#featured').orbit({bullets: true})
                     $('#featured2').orbit({bullets: true})
@@ -93,10 +93,46 @@ export default {
 </script>
 
 <style>
+@media (min-width:281px) {
+    .col-md-4 {
+        width: 100%;
+        float: center;
+    }
+    .col-md-6 .titlekonten {
+        float: none; 
+        font-size: 35px; 
+        border: 10px;
+        color: #ffffff;
+        text-align: center;
+    }
+    .col-md-6 .deskripsikonten {
+        float: left; 
+        border-top: 2px solid #ffffff;
+        padding-top: 10px;
+    }
+    .orbit-wrapper.fluid .orbit-bullets {
+        margin-bottom: 60px;
+    }
+}
 @media (min-width:481px) {
     .col-md-4 {
         width: 45%;
         float: left;
+    }
+    .col-md-6 .titlekonten {
+        float: none; 
+        font-size: 35px; 
+        border: 10px;
+        color: #ffffff;
+        text-align: center;
+    }
+    .col-md-6 .deskripsikonten {
+        float: left; 
+        border-top: 2px solid #ffffff;
+        padding-top: 10px;
+    }
+    .orbit-wrapper.fluid .orbit-bullets {
+        margin-bottom: 60px;
     }
 }
 @media (min-width:641px) {
@@ -104,11 +140,55 @@ export default {
         width: 46%;
         float: center;
     }
+    .col-md-6 .titlekonten {
+        float: none; 
+        font-size: 35px; 
+        border: 10px;
+        color: #ffffff;
+        text-align: center;
+    }
+    .col-md-6 .deskripsikonten {
+        float: left; 
+        border-top: 2px solid #ffffff;
+        padding-top: 10px;
+    }
 }
 @media (min-width:961px) {
     .col-md-4 {
         width: 30%;
         float: center;
+    }
+     .col-md-6 .titlekonten {
+        float: none; 
+        font-size: 35px; 
+        border: 10px;
+        color: #ffffff;
+        text-align: center;
+    }
+    .col-md-6 .deskripsikonten {
+        float: left; 
+        border-top: 2px solid #ffffff;
+        padding-top: 10px;
+    }
+}
+@media (min-width: 992px) {
+    nav.navbar.bootsnav ul.nav > li > a {
+        font-weight: bold;
+    }
+    .col-md-6 .titlekonten {
+        float: right; 
+        font-size: 35px; 
+        border: 10px;
+        color: #ffffff;
+    }
+    .col-md-6 .deskripsikonten {
+        float: left; 
+        border-left: 2px solid #ffffff;
+        padding-left: 20px;
+        border-top: none;
+    }
+    .orbit-wrapper.fluid .orbit-bullets {
+        margin-bottom: 190px;
     }
 }
 @media (min-width: 1200px) {
@@ -116,16 +196,41 @@ export default {
         width: 30%;
         float: center;
     }
+    .col-md-6 .titlekonten {
+        float: right; 
+        font-size: 35px; 
+        color: #ffffff;
+        margin-top: 10px;
+    }
+    .col-md-6 .deskripsikonten {
+        float: left; 
+        border-left: 2px solid #ffffff;
+        padding-left: 20px;
+        border-top: none;
+    }
+    .orbit-wrapper.fluid .orbit-bullets {
+        margin-bottom: 170px;
+    }
 }
 @media (min-width: 1281px) {
     .col-md-4 {
         width: 30%;
         float: center;
     }
-}
-@media (min-width: 992px) {
-    nav.navbar.bootsnav ul.nav > li > a {
-        font-weight: bold;
+    .col-md-6 .titlekonten {
+        float: right; 
+        font-size: 35px; 
+        border: 10px;
+        color: #ffffff;
+    }
+    .col-md-6 .deskripsikonten {
+        float: left; 
+        border-left: 2px solid #ffffff;
+        padding-left: 20px;
+        border-top: none;
+    }
+    .orbit-wrapper.fluid .orbit-bullets {
+        margin-bottom: 230px;
     }
 }
 </style>

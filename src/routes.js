@@ -21,14 +21,6 @@ const router = new VueRouter({
         {
             path: '/privacy',
             component: require('./components/Privacy.vue')
-        },
-        {
-            path: '/slide',
-            component: require('./components/Slideshow.vue')
-        },
-        {
-            path: '/test',
-            component: require('./components/Test.vue')
         }
     ]
 })
