@@ -1,5 +1,5 @@
 <template>
-    <div class="blackfooter">
+    <div class="blackfooter" v-show="this.$parent.showloading == 0">
         <div class="col-md-12">
             <div class="container">
                 <div class="row"> 
