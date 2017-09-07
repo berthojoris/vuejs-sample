@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-default bootsnav navbar-fixed on no-full" v-show="this.$parent.showloading == 0">
+    <nav class="navbar navbar-default bootsnav navbar-fixed on no-full">
 
 
         <div class="container"> 
