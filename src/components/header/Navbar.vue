@@ -28,15 +28,11 @@
 </template>
 
 <script>
-    export default {
-        data(){
-            return {
-                imageSource: require('../../assets/template/images/logo.png')
-            }
+export default {
+    methods: {
+        linkClicked: function() {
+            
         }
     }
+}
 </script>
-
-<style>
-
-</style>

@@ -1,14 +1,16 @@
 <template>
-    <div id="app">
-        <navbar></navbar>
-        <router-view></router-view>
-        <vue-progress-bar></vue-progress-bar>
+    <div class="holder">
+        <div id="app">
+            <navbar></navbar>
+            <router-view></router-view>
+            <vue-progress-bar></vue-progress-bar>
+        </div>
     </div>
 </template>
 
 <script>
-import Navbar from './components/header/Navbar.vue'
 
+import Navbar from './components/header/Navbar.vue'
 
 export default {
     components: {
@@ -68,7 +70,7 @@ export default {
     transform: rotate(90deg);
 }
 .lds-rolling {
-  position:fixed;
+    position:fixed;
     top: 50%;
     left: 50%;
     width: 200px !important;
@@ -95,4 +97,9 @@ export default {
     border: 3px solid green;
     padding: 10px;
 }
+.holder {
+    min-height: 100%;
+    position:relative;
+}
+
 </style>

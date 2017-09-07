@@ -3,6 +3,7 @@
         <loadingpanel></loadingpanel>
         <slides></slides>
         <newslist></newslist>
+        <blackfooter></blackfooter>
     </div>
 </template>
 
@@ -10,6 +11,7 @@
 import Loadingpanel from './shared/Loadingpanel.vue'
 import Slides from './shared/Slides.vue'
 import Newslist from './shared/Newslist.vue'
+import Footer from './footer/Footer.vue'
 
 require('../assets/template/orbitslide/jquery.orbit-1.3.0.js');
 require('../assets/template/orbitslide/orbit-1.3.0.css');
@@ -19,7 +21,8 @@ export default {
     components: {
         'loadingpanel': Loadingpanel,
         'newslist': Newslist,
-        'slides': Slides
+        'slides': Slides,
+        'blackfooter': Footer,
     },
     data() {
         return {
@@ -76,7 +79,7 @@ export default {
             let filterData = param
 
             if (filterData.length >= 100) {
-                filterData = filterData.substring(0, 90) + " ..."
+                filterData = filterData.substring(0, 80) + " ..."
             }
             return filterData
         },

@@ -1,7 +1,7 @@
 <template>
     <section id="features" class="features">
             <div class="container">
-                <div class="row">   
+                <div class="row">  
                     <div class="col-md-4" v-for="(item, index) in this.$parent.items" :key="item._id" :class="computedClass(index)" :content="['#data_' + index]">
                         <div class="features_item sm-m-top-30">
                             <div class="f_item_text">
@@ -36,7 +36,7 @@ export default {
     updated() {
         const datanya = this.$parent.items
         const totalData = _.size(datanya)
-        const gotDamnRigthTotal = parseInt(totalData / 6)
+        const gotDamnRigthTotal = parseInt((totalData / 6) + 1)
 
         $('#pagination').twbsPagination({
             totalPages: gotDamnRigthTotal,
@@ -59,7 +59,7 @@ export default {
             let filterData = param
 
             if (filterData.length >= 90) {
-                filterData = filterData.substring(0, 86) + " ..."
+                filterData = filterData.substring(0, 80) + " ..."
             }
             return filterData
         },
